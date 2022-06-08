@@ -1,17 +1,37 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+import Card from "./components/Card";
+import "./components/style.css";
+import Sdata from "./components/Sdata";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ReactDOM.render(
+
+<>
+
+<h1  className="heading_style">List of 5 Netflix series in 2022</h1>
+
+  {
+      Sdata.map((val, index) => {
+
+          const {imgsrc, title, sname, link} = val;
+    
+    return(
+        <Card key={index}
+        imgsrc = {imgsrc}
+        title = {title}
+        sname = {sname}
+        link = {link}
+        />
+
+    );
+
+  }
+
+  )
+  
+}
+
+</>,
+
+    document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
